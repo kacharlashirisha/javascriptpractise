@@ -4,16 +4,45 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Hidding Paragraph</title>
+    
+       
+    
 </head>
 <body>
-    <p id = "para"> This paragraph can be hidden!</p>
-    <button id = "hidebutton" type="button" onclick ="hideParagraph()"> Click to hide paragraph</button>
+    <input type="button" onclick ="change()" value="Click to display" id ="myButton1" />
+    <div id = "hide"> This paragraph can be hidden!</div>
+    <p>Click the button to display new paragraph</p>
+    <button onclick = "addLine()"> Click Here for more</button>
     <script>
-        function hideParagraph() {
-            document.getElementById("para").style.visibility = "hidden";
-            document.getElementById("hidebutton").style.visibility = "hidden";
+        function change() {
+            var x = document.getElementById("myButton1");
+            if (x.value == "click to display") {
+                x.value = "click to hide";
+            } else {
+                x.value = "click to display";
+            }
+            hideParagraph();
         }
+        function hideParagraph()
+        {
+            var x = document.getElementById("hide");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else
+            {
+                x.style.display = "none";
+            }
+        }
+
+        function addLine() {
+            var para = document.createElement("P");
+            var t = document.createTextNode("this is a new line");
+            para.appendChild(t);
+            document.body.appendChild(para);
+
+        }
+
     </script>
 </body>
 </html>
