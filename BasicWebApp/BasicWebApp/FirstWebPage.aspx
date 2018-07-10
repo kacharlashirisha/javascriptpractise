@@ -10,10 +10,13 @@
     
 </head>
 <body>
-    <input type="button" onclick ="change()" value="Click to display" id ="myButton1" />
     <div id = "hide"> This paragraph can be hidden!</div>
-    <p>Click the button to display new paragraph</p>
-    <button onclick = "addLine()"> Click Here for more</button>
+    <input type="button" onclick ="change()" value="Click to display" id ="myButton1" />
+    <button onclick="displayPara()">Click to display new paragraph</button>
+    <ol id="myList">
+    </ol><!--<p>Click the button to display new paragraph</p>
+    <button onclick = "addLine()"> Click Here for more</button>-->
+
     <script>
         function change() {
             var x = document.getElementById("myButton1");
@@ -35,12 +38,19 @@
             }
         }
 
-        function addLine() {
+        /*function addLine() {
             var para = document.createElement("P");
             var t = document.createTextNode("this is a new line");
             para.appendChild(t);
             document.body.appendChild(para);
 
+        }*/
+
+        function displayPara() {
+            var node = document.createElement("Li");
+            var textnode = document.createTextNode("This is a paragraph");
+            node.appendChild(textnode);
+            document.getElementById("myList").appendChild(node);
         }
 
     </script>
