@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>
+            Create and Delete a paragraph on button click
+        </title>
+        <style>
+            #myB, #myP
+            {
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <button onclick="displayPara()">Click to create paragraph</button>
+        <div id = "myDiv"></div>
+
+        <script>
+            var counter = 1;
+            function displayPara()
+            {
+              var newDiv = document.createElement("DIV");
+              newDiv.id = 'myD';
+              var newPara = document.createElement("P");
+              newPara.id = 'myP';
+              var paraText = document.createTextNode("This is Paragraph number" + " " + counter + ".");
+              newPara.appendChild(paraText);
+              var newButton = document.createElement("BUTTON");
+              newButton.addEventListener("click", removeParagraph);
+              newButton.id = 'myB';
+              var btext = document.createTextNode("Delete");
+              newButton.appendChild(btext);
+              newDiv.appendChild(newPara);
+              newDiv.appendChild(newButton);
+              var mainDiv = document.getElementById("myDiv");
+              mainDiv.appendChild(newDiv);
+              counter = counter + 1;
+            }
+
+            function removeParagraph()
+            {
+                counter = counter-1;
+                /*var button = document.getElementById("myB");
+                button.parentNode.removeChild(button);
+                var para = document.getElementById("myP");
+                para.parentNode.removeChild(para);*/
+                var parentDiv = this.parentElement;
+                document.getElementById("myDiv").removeChild(parentDiv);
+               
+                
+            }
+        </script>
+    </body>
+</html>
